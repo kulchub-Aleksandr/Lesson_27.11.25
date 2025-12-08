@@ -20,10 +20,16 @@ public class TextBoxRegistrationPage {
     public TextBoxRegistrationPage openPage() {
         open("/text-box");
         $(".text-center").shouldHave(text("Text Box"));
+        return this;
+    }
+
+    public TextBoxRegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
+
     }
+
     public TextBoxRegistrationPage setFirstName(String value) {
         fullNameInput.setValue(value);
         return this;

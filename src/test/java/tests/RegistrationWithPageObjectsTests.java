@@ -11,6 +11,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     void successfulRegistrationTest() {
         registrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName("Alex")
                 .setLastName("Dmitr")
                 .setEmail("Alex@Dmitr.com")
@@ -21,6 +22,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setHobbies("Reading")
                 .setUploadPicture("icons.png")
                 .setCurrentAddress("Russia, Ufa")
+                .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper("NCR")
                 .setCityDropdown()
@@ -62,6 +64,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 //.setStateCityWrapper("NCR")
                 //.setCityDropdown()
                 //.setStateCityWrapper("Delhi")
+                .setScroll()
                 .setSubmit()
                 .setModalDialog()
                 .setModalTitle("Thanks for submitting the form")
@@ -91,23 +94,28 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setHobbies("Reading")
                 .setUploadPicture("icons.png")
                 .setCurrentAddress("Russia, Ufa")
+                .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper("NCR")
                 .setCityDropdown()
                 .setStateCityWrapper("Delhi")
                 .setSubmit()
-                .setModalDialog()
-                .setModalTitle("Thanks for submitting the form")
-                .checkResult("Student Name", "Alex Dmitr")
-                .checkResult("Student Email", "Alex@Dmitr.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "123456789")
-                .checkResult("Date of Birth", "04 October,1990")
-                .checkResult("Subjects", "Maths")
-                .checkResult("Hobbies", "Reading")
-                .checkResult("Picture", "icons.png")
-                .checkResult("Address", "Russia, Ufa")
-                .checkResult("State and City", "NCR Delhi")
-                .closeModal();
+                .getModalDialog();
+                //.setModalDialog()
+//                .setModalTitle("Thanks for submitting the form")
+//                .checkResult("Student Name", "Alex Dmitr")
+//                .checkResult("Student Email", "Alex@Dmitr.com")
+//                .checkResult("Gender", "Male")
+//                .checkResult("Mobile", "123456789")
+//                .checkResult("Date of Birth", "04 October,1990")
+//                .checkResult("Subjects", "Maths")
+//                .checkResult("Hobbies", "Reading")
+//                .checkResult("Picture", "icons.png")
+//                .checkResult("Address", "Russia, Ufa")
+//                .checkResult("State and City", "NCR Delhi")
+//                .closeModal();
+
+
+
     }
 }

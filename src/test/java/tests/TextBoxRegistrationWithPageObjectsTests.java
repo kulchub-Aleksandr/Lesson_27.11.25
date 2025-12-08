@@ -11,6 +11,7 @@ public class TextBoxRegistrationWithPageObjectsTests extends TestBase {
     void successfulRegistrationTest() {
         textBoxRegistrationPage
                 .openPage()
+                .removeBanner()
                 .setFirstName("Alex Dmitr")
                 .setEmail("Alex@Dmitr.com")
                 .setCurrentAddress("Russia, Ufa")

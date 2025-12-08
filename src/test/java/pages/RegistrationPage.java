@@ -4,8 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.TableResponsive;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -35,10 +34,14 @@ public class RegistrationPage {
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        return this;
+    }
+
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
         return this;
+
     }
 
     public RegistrationPage setFirstName(String value) {
@@ -87,6 +90,10 @@ public class RegistrationPage {
         currentAddress.setValue(value);
         return this;
     }
+    public RegistrationPage setScroll(){
+        submit.scrollIntoView("{block: 'center'}");
+        return this;
+    }
     public RegistrationPage setStateDropdown() {
         stateDropdown.click();
         return this;
@@ -105,6 +112,10 @@ public class RegistrationPage {
     }
     public RegistrationPage setModalDialog() {
         modalDialog.should(appear);
+        return this;
+    }
+    public RegistrationPage getModalDialog() {
+        modalDialog.shouldNotBe(visible);
         return this;
     }
     public RegistrationPage setModalTitle(String title) {
