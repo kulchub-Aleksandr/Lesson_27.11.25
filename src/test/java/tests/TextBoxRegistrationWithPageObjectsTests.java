@@ -3,6 +3,8 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxRegistrationPage;
 
+import static tests.TestData.*;
+
 public class TextBoxRegistrationWithPageObjectsTests extends TestBase {
 
     TextBoxRegistrationPage textBoxRegistrationPage = new TextBoxRegistrationPage();
@@ -12,14 +14,14 @@ public class TextBoxRegistrationWithPageObjectsTests extends TestBase {
         textBoxRegistrationPage
                 .openPage()
                 .removeBanner()
-                .setFirstName("Alex Dmitr")
-                .setEmail("Alex@Dmitr.com")
-                .setCurrentAddress("Russia, Ufa")
-                .setPermanentAddress("Another street 1")
+                .setFirstName(firstName + " " +  lastName)
+                .setEmail(userEmail)
+                .setCurrentAddress(currentAddress)
+                .setPermanentAddress(permanentAddress)
                 .setSubmit()
-                .checkOutput("Name:", "Alex Dmitr")
-                .checkOutput("Email:", "Alex@Dmitr.com")
-                .checkOutput("Current Address :", "Russia, Ufa")
-                .checkOutput("Permananet Address :","Another street 1");
+                .checkOutput("Name:", firstName + " " + lastName)
+                .checkOutput("Email:", userEmail)
+                .checkOutput("Current Address :", currentAddress)
+                .checkOutput("Permananet Address :", permanentAddress);
     }
 }
