@@ -21,8 +21,8 @@ public class RegistrationPage {
             uploadPicture = $("#uploadPicture"),
             currentAddress = $("#currentAddress"),
             stateDropdown = $("#state"),
-            stateCityWrapper = $("#stateCity-wrapper"),
             cityDropdown = $("#city"),
+            stateCityWrapper = $("#stateCity-wrapper"),
             submit = $("#submit"),
             modalDialog = $(".modal-dialog"),
             modalTitle = $("#example-modal-sizes-title-lg"),
@@ -74,50 +74,62 @@ public class RegistrationPage {
         calendarComponent.setDate(day, month, year);
         return this;
     }
+
     public RegistrationPage setSabjects(String value) {
         sabject.setValue(value).pressEnter();
         return this;
     }
+
     public RegistrationPage setHobbies(String value) {
         Hobbies.$(byText(value)).click();
         return this;
     }
+
     public RegistrationPage setUploadPicture(String value) {
         uploadPicture.uploadFromClasspath(value);
         return this;
     }
+
     public RegistrationPage setCurrentAddress(String value) {
         currentAddress.setValue(value);
         return this;
     }
-    public RegistrationPage setScroll(){
+
+    public RegistrationPage setScroll() {
         submit.scrollIntoView("{block: 'center'}");
         return this;
     }
+
     public RegistrationPage setStateDropdown() {
         stateDropdown.click();
         return this;
     }
+
     public RegistrationPage setStateCityWrapper(String value) {
         stateCityWrapper.$(byText(value)).click();
         return this;
     }
-    public  RegistrationPage setCityDropdown() {
+
+    public RegistrationPage setCityDropdown() {
         cityDropdown.click();
         return this;
     }
+
     public RegistrationPage setSubmit() {
         submit.click();
         return this;
     }
+
     public RegistrationPage setModalDialog() {
         modalDialog.should(appear);
         return this;
     }
+
     public RegistrationPage getModalDialog() {
         modalDialog.shouldNotBe(visible);
         return this;
     }
+
     public RegistrationPage setModalTitle(String title) {
         modalTitle.shouldHave(text(title));
         return this;
@@ -127,6 +139,7 @@ public class RegistrationPage {
         tableResponsive.setTable(key, value);
         return this;
     }
+
     public RegistrationPage closeModal() {
         closeModal.click();
         return this;

@@ -2,6 +2,9 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
+import static tests.FakerTestData.city;
+import static tests.FakerTestData.state;
 import static tests.TestData.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
@@ -26,8 +29,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper(state)
-                .setCityDropdown()
-                .setStateCityWrapper(City)
+                .setStateDropdown()
+                .setStateCityWrapper(city)
                 .setSubmit()
                 .setModalDialog()
                 .setModalTitle(submitFormText)
@@ -40,7 +43,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResult("Hobbies", hobbies)
                 .checkResult("Picture", Picture)
                 .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + City)
+                .checkResult("State and city", state + " " + city)
                 .closeModal();
 
 
@@ -78,7 +81,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 //                .checkResult("Hobbies", "Reading")
 //                .checkResult("Picture", "icons.png")
 //                .checkResult("Address", "Russia, Ufa")
-//                .checkResult("State and City", "NCR Delhi")
+//                .checkResult("State and city", "NCR Delhi")
                 .closeModal();
     }
     @Test
@@ -98,8 +101,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper(state)
-                .setCityDropdown()
-                .setStateCityWrapper(City)
+                .setStateDropdown()
+                .setStateCityWrapper(city)
                 .setSubmit()
                 .getModalDialog();
                 //.setModalDialog()
@@ -113,7 +116,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 //                .checkResult("Hobbies", "Reading")
 //                .checkResult("Picture", "icons.png")
 //                .checkResult("Address", "Russia, Ufa")
-//                .checkResult("State and City", "NCR Delhi")
+//                .checkResult("State and city", "NCR Delhi")
 //                .closeModal();
 
 

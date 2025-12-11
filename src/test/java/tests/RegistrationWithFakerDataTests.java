@@ -27,8 +27,8 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper(state)
-                .setCityDropdown()
-                .setStateCityWrapper(City)
+                .setStateDropdown()
+                .setStateCityWrapper(city)
                 .setSubmit()
                 .setModalDialog()
                 .setModalTitle(submitFormText)
@@ -41,7 +41,7 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .checkResult("Hobbies", hobbies)
                 .checkResult("Picture", Picture)
                 .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + City)
+                .checkResult("State and City", state + " " + city)
                 .closeModal();
 
 
@@ -99,8 +99,8 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .setScroll()
                 .setStateDropdown()
                 .setStateCityWrapper(state)
-                .setCityDropdown()
-                .setStateCityWrapper(City)
+                .setStateDropdown()
+                .setStateCityWrapper(city)
                 .setSubmit()
                 .getModalDialog();
                 //.setModalDialog()
