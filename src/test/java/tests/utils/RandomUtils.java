@@ -27,7 +27,6 @@ public class RandomUtils {
 
     }
 
-    //private static final Random random = new Random();
 
     public static String getRandomString(int len) {
 //        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -62,34 +61,7 @@ public class RandomUtils {
         return faker.phoneNumber().subscriberNumber(9);
 
     }
-//    public static String generateRandomPhoneNumber() {
-//        ThreadLocalRandom random = ThreadLocalRandom.current();
-//        // Первая цифра: от 1 до 9
-//        StringBuilder phone = new StringBuilder();
-//        phone.append(random.nextInt(1, 10)); // [1, 10) → 1–9
-//        // Остальные 9 цифр: от 0 до 9
-//        for (int i = 0; i < 9; i++) {
-//            phone.append(random.nextInt(0, 10)); // [0, 10) → 0–9
-//        }
-//        return phone.toString();
-//    }
-//    public static String generateNotFullRandomPhoneNumber() {
-//        ThreadLocalRandom random = ThreadLocalRandom.current();
-//        // Первая цифра: от 1 до 9
-//        StringBuilder phone = new StringBuilder();
-//        phone.append(random.nextInt(1, 10)); // [1, 10) → 1–9
-//        // Остальные 9 цифр: от 0 до 8
-//        for (int i = 0; i < 8; i++) {
-//            phone.append(random.nextInt(0, 9)); // [0, 10) → 0–9
-//        }
-//        return phone.toString();
-//    }
 
-//    // +3 (263) 253 - 66 - 12
-//    public static String getRandomPhoneExtended() {
-//        return String.format("+%s (%s) %s - %s - %s", getRandomInt(1, 9), getRandomInt(111, 999),
-//                getRandomInt(111, 999), getRandomInt(11, 99), getRandomInt(11, 99));
-//    }
 
     public static String getRandomGender() {
         String[] gender = {"Male", "Female", "Other"};
@@ -152,21 +124,9 @@ public class RandomUtils {
                 "Chemistry", "Computer Science", "English", "Maths", "Physics", "Economics",
                 "Arts", "Social Studies", "History", "Civics", "Hindi", "Biology", "Commerce", "Accounting"
         }; //14
-//        Random random = new Random();
-//        int count = random.nextInt(subjects.length);//
-//        for (int i = 0; i < count; i++) {
-//            int index = random.nextInt(subjects.length);
-//            result.add(subjects[index]);
-//        }
-//        return result;
+
         return subjects[ThreadLocalRandom.current().nextInt(subjects.length - 1)];
     }
-
-//    public static String getStateInput() {
-//        //Random random = new Random();
-//        String[] subjects = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-//        return subjects[getRandomInt(0, subjects.length - 1)];
-//    }
 
 
     public static String getRandomStateInput() {
@@ -183,27 +143,6 @@ public class RandomUtils {
             default -> null;
         };
     }
-
-//        public static String getCityInput () {
-//            String state = getStateInput();
-//            //Random random = new Random();
-//
-//            String[] cityNCR = {"Delhi", "Gurgaon", "Noida"};
-//            String[] cityUttarPradesh = {"Agra", "Lucknow", "Merrut"};
-//            String[] cityHaryana = {"Karnal", "Panipat"};
-//            String[] cityRajasthan = {"Jaipur", "Jaiselmer"};
-//
-//            if (state.equals("NCR")) {
-//                return cityNCR[getRandomInt(0, cityNCR.length - 1)];
-//            } else if (state.equals("Uttar Pradesh")) {
-//                return cityUttarPradesh[getRandomInt(0, cityUttarPradesh.length - 1)];
-//            } else if (state.equals("Haryana")) {
-//                return cityHaryana[getRandomInt(0, cityHaryana.length - 1)];
-//            } else if (state.equals("Rajasthan")) {
-//                return cityRajasthan[getRandomInt(0, cityRajasthan.length - 1)];
-//            }
-//            return "Unknown City";
-//        }
 
 
 }

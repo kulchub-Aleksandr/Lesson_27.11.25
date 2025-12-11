@@ -26,9 +26,7 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .setCurrentAddress(currentAddress)
                 .setScroll()
                 .setStateDropdown(state)
-                //.setStateCityWrapper(state)
                 .setCityDropdown(city)
-                //.setStateCityWrapper(city)
                 .setSubmit()
                 .setModalDialog()
                 .setModalTitle(submitFormText)
@@ -36,14 +34,13 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .checkResult("Student Email", userEmail)
                 .checkResult("Gender", gender)
                 .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", day + " " + month+ "," + year)
+                .checkResult("Date of Birth", day + " " + month + "," + year)
                 .checkResult("Subjects", sabjects)
                 .checkResult("Hobbies", hobbies)
                 .checkResult("Picture", Picture)
                 .checkResult("Address", currentAddress)
                 .checkResult("State and City", state + " " + city)
                 .closeModal();
-
 
 
     }
@@ -82,6 +79,7 @@ public class RegistrationWithFakerDataTests extends TestBase {
 //                .checkResult("State and City", "NCR Delhi")
                 .closeModal();
     }
+
     @Test
     void negativeRegistrationTest() {
         registrationPage
@@ -103,7 +101,7 @@ public class RegistrationWithFakerDataTests extends TestBase {
 //                .setStateCityWrapper(city)
                 .setSubmit()
                 .getModalDialog();
-                //.setModalDialog()
+        //.setModalDialog()
 //                .setModalTitle("Thanks for submitting the form")
 //                .checkResult("Student Name", "Alex Dmitr")
 //                .checkResult("Student Email", "Alex@Dmitr.com")
@@ -116,7 +114,6 @@ public class RegistrationWithFakerDataTests extends TestBase {
 //                .checkResult("Address", "Russia, Ufa")
 //                .checkResult("State and City", "NCR Delhi")
 //                .closeModal();
-
 
 
     }

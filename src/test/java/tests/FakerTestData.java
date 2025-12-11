@@ -26,6 +26,6 @@ public class FakerTestData {
     static String state = getRandomStateInput();
     static String city = getRandomCityInput(state);
     static String submitFormText = "Thanks for submitting the form";
-    static String permanentAddress = faker.address().secondaryAddress();
+    //static String permanentAddress = faker.address().secondaryAddress();
 
 }

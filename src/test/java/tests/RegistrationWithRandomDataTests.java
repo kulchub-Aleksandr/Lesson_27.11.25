@@ -100,9 +100,7 @@ public class RegistrationWithRandomDataTests extends TestBase {
                 .setCurrentAddress(currentAddress)
                 .setScroll()
                 .setStateDropdown(state)
-                //.setStateCityWrapper(state)
                 .setCityDropdown(city)
-                //.setStateCityWrapper(city)
                 .setSubmit()
                 .getModalDialog();
                 //.setModalDialog()
