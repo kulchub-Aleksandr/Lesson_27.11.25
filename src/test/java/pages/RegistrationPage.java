@@ -20,9 +20,11 @@ public class RegistrationPage {
             Hobbies = $("#hobbiesWrapper"),
             uploadPicture = $("#uploadPicture"),
             currentAddress = $("#currentAddress"),
-            stateDropdown = $("#state"),
-            cityDropdown = $("#city"),
-            stateCityWrapper = $("#stateCity-wrapper"),
+//            stateDropdown = $("#state"),
+//            cityDropdown = $("#city"),
+//            stateCityWrapper = $("#stateCity-wrapper"),
+            stateFieldSetValue = $("#react-select-3-input"),
+            cityFieldSetValue = $("#react-select-4-input"),
             submit = $("#submit"),
             modalDialog = $(".modal-dialog"),
             modalTitle = $("#example-modal-sizes-title-lg"),
@@ -100,18 +102,27 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setStateDropdown() {
-        stateDropdown.click();
+//    public RegistrationPage setStateDropdown() {
+//        stateDropdown.click();
+//        return this;
+//    }
+    public RegistrationPage setStateDropdown(String value) {
+        stateFieldSetValue.setValue(value).pressEnter();
         return this;
     }
 
-    public RegistrationPage setStateCityWrapper(String value) {
-        stateCityWrapper.$(byText(value)).click();
-        return this;
-    }
+//    public RegistrationPage setStateCityWrapper(String value) {
+//        stateCityWrapper.$(byText(value)).pressEnter();
+//        return this;
+//    }
 
-    public RegistrationPage setCityDropdown() {
-        cityDropdown.click();
+//    public RegistrationPage setCityDropdown() {
+//        cityDropdown.click();
+//        return this;
+//    }
+
+    public RegistrationPage setCityDropdown(String value) {
+        cityFieldSetValue.setValue(value).pressEnter();
         return this;
     }
 
