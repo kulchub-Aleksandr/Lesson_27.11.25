@@ -23,8 +23,8 @@ public class FakerTestData {
     static String hobbies = getRandomHobbies();
     static String Picture = "icons.png";
     static String currentAddress = faker.address().fullAddress();
-    static String state = getStateRandomInput();
-    static String city = getCityRandomInput(state);
+    static String state = getRandomStateInput();
+    static String city = getRandomCityInput(state);
     static String submitFormText = "Thanks for submitting the form";
     static String permanentAddress = faker.address().secondaryAddress();
 

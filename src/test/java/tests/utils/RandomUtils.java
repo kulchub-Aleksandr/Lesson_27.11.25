@@ -16,13 +16,14 @@ public class RandomUtils {
         System.out.println(getRandomEmail());
         System.out.println(getRandomInt(333, 888));
         System.out.println(generateRandomPhoneNumber());
+        System.out.println(generateNotFullRandomPhoneNumber());
         System.out.println(getRandomGender());
         System.out.println(generateRandomYear());
         System.out.println(generateRandomMonth());
         System.out.println(generateRandomDay());
         System.out.println(getRandomSubjectsInput());
-        System.out.println(getStateRandomInput());
-        System.out.println(getCityRandomInput(getStateRandomInput()));
+        System.out.println(getRandomStateInput());
+        System.out.println(getRandomCityInput(getRandomStateInput()));
 
     }
 
@@ -112,7 +113,7 @@ public class RandomUtils {
 
         int minMonth = 1;
         int maxMonth = 12;
-        int month = getRandomInt(minMonth, minMonth) + minMonth;
+        int month = getRandomInt(minMonth, maxMonth) + minMonth;
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.MONTH, month - 1);
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM", new Locale("en", "US"));
@@ -168,14 +169,12 @@ public class RandomUtils {
 //    }
 
 
-    public static String getStateRandomInput() {
-        String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-        ;
-        //--> Faker выбирает штат из заданного списка
-        return state; // state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    public static String getRandomStateInput() {
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+        //return state;
     }
 
-    public static String getCityRandomInput(String state) {
+    public static String getRandomCityInput(String state) {
         return switch (state) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
@@ -183,6 +182,7 @@ public class RandomUtils {
             case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
             default -> null;
         };
+    }
 
 //        public static String getCityInput () {
 //            String state = getStateInput();
@@ -206,7 +206,7 @@ public class RandomUtils {
 //        }
 
 
-    }
 }
+
 
 
