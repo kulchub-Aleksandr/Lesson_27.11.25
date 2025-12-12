@@ -4,6 +4,9 @@ import com.github.javafaker.Faker;
 
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.time.Month;
+import java.time.YearMonth;
+import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
@@ -12,12 +15,13 @@ public class RandomUtils {
     static Faker faker = new Faker(new Locale("en"));
 
     public static void main(String[] args) {
-        System.out.println(getRandomString(8));
+        //System.out.println(getRandomString(8));
         System.out.println(getRandomEmail());
-        System.out.println(getRandomInt(333, 888));
-        System.out.println(generateRandomPhoneNumber());
-        System.out.println(generateNotFullRandomPhoneNumber());
+        //System.out.println(getRandomInt(333, 888));
+        //System.out.println(generateRandomPhoneNumber());
+        //System.out.println(generateNotFullRandomPhoneNumber());
         System.out.println(getRandomGender());
+        System.out.println(getRandomHobbies());
         System.out.println(generateRandomYear());
         System.out.println(generateRandomMonth());
         System.out.println(generateRandomDay());
@@ -29,7 +33,7 @@ public class RandomUtils {
 
 
     public static String getRandomString(int len) {
-//        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+       // String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
         SecureRandom rnd = new SecureRandom();
@@ -42,7 +46,7 @@ public class RandomUtils {
     }
 
     public static String getRandomEmail() {
-        return getRandomString(8) + "@" + getRandomString(8) + ".com";
+        return faker.internet().emailAddress();
     }
 
     public static int getRandomInt(int min, int max) {
@@ -62,47 +66,42 @@ public class RandomUtils {
 
     }
 
-
     public static String getRandomGender() {
-        String[] gender = {"Male", "Female", "Other"};
-        return gender[ThreadLocalRandom.current().nextInt(gender.length)];
+        String gender;
+        gender = faker.options().option("Male", "Female", "Other");
+        return gender;
     }
 
     public static String getRandomHobbies() {
-        String[] hobbies = {"Sports", "Reading", "Music"};
-        return hobbies[ThreadLocalRandom.current().nextInt(hobbies.length)];
+        String hobbies;
+        hobbies = faker.options().option("Sports", "Reading", "Music");
+        return hobbies;
     }
 
     public static String generateRandomYear() {
-
-        int minYear = 1900;
-        int maxYear = 2100;
-        int year = getRandomInt(minYear, maxYear);
+        int year;
+        year = faker.number().numberBetween(1990,2100);
         return String.valueOf(year);
     }
 
     public static String generateRandomMonth() {
-
-        int minMonth = 1;
-        int maxMonth = 12;
-        int month = getRandomInt(minMonth, maxMonth) + minMonth;
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, month - 1);
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM", new Locale("en", "US"));
-        return sdf.format(cal.getTime());
+        int month = faker.number().numberBetween(1, 12);
+        Month monthEnum = Month.of(month);
+        return monthEnum.getDisplayName(
+                TextStyle.FULL,
+                Locale.ENGLISH
+        );
     }
 
     public static String generateRandomDay() {
-
         String yearStr = generateRandomYear();
         String monthName = generateRandomMonth();
-        int monthNum = getMonthNumberFromName(monthName);
         int yearInt = Integer.parseInt(yearStr);
-        Calendar cal = Calendar.getInstance();
-        cal.set(yearInt, monthNum - 1, 1);
-        int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-        int day = getRandomInt(0, maxDay) + 1;
-        return (day < 10) ? "0" + day : String.valueOf(day);
+        int monthNum = getMonthNumberFromName(monthName);
+        YearMonth yearMonth = YearMonth.of(yearInt, monthNum);
+        int maxDay = yearMonth.lengthOfMonth();
+        int day = faker.number().numberBetween(0, maxDay);
+        return String.format("%02d", day);
     }
 
     private static int getMonthNumberFromName(String monthName) {
@@ -110,7 +109,6 @@ public class RandomUtils {
                 "January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
         };
-
         for (int i = 0; i < months.length; i++) {
             if (months[i].equalsIgnoreCase(monthName)) {
                 return i + 1; // номер месяца (1–12)
@@ -120,18 +118,14 @@ public class RandomUtils {
     }
 
     public static String getRandomSubjectsInput() {
-        String[] subjects = {
-                "Chemistry", "Computer Science", "English", "Maths", "Physics", "Economics",
-                "Arts", "Social Studies", "History", "Civics", "Hindi", "Biology", "Commerce", "Accounting"
-        }; //14
-
-        return subjects[ThreadLocalRandom.current().nextInt(subjects.length - 1)];
+        String subjects;
+        subjects = faker.options().option("Chemistry", "Computer Science", "English", "Maths", "Physics", "Economics",
+               "Arts", "Social Studies", "History", "Civics", "Hindi", "Biology", "Commerce", "Accounting");
+        return subjects;
     }
-
 
     public static String getRandomStateInput() {
         return faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
-        //return state;
     }
 
     public static String getRandomCityInput(String state) {

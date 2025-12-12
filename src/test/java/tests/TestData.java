@@ -15,7 +15,7 @@ public class TestData {
     static String Picture = "icons.png";
     static String currentAddress = "Russia, Ufa";
     static String state = "NCR";
-    static String City = "Delhi";
+    static String city = "Delhi";
     static String submitFormText = "Thanks for submitting the form";
     static String permanentAddress = "Another street 1";
 

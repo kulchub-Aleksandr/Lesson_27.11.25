@@ -8,7 +8,7 @@ public class RandomTestData {
     static String userEmail = getRandomEmail();
     static String gender = getRandomGender();
     static String userNumber = generateRandomPhoneNumber();
-    static String notFullUserNumber = "123456789";
+    static String notFullUserNumber = generateNotFullRandomPhoneNumber();
     static String day = "04";
     static String month = "October";
     static String year = "1990";
@@ -17,7 +17,7 @@ public class RandomTestData {
     static String Picture = "icons.png";
     static String currentAddress = "Russia, Ufa";
     static String state = "NCR";
-    static String City = "Delhi";
+    static String city = "Delhi";
     static String submitFormText = "Thanks for submitting the form";
     static String permanentAddress = "Another street 1";
 

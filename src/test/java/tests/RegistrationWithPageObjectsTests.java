@@ -3,8 +3,6 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static tests.FakerTestData.city;
-import static tests.FakerTestData.state;
 import static tests.TestData.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {

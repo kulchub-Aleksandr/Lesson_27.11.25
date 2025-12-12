@@ -3,8 +3,7 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static tests.FakerTestData.city;
-import static tests.FakerTestData.state;
+
 import static tests.RandomTestData.*;
 
 public class RegistrationWithRandomDataTests extends TestBase {
@@ -43,7 +42,7 @@ public class RegistrationWithRandomDataTests extends TestBase {
                 .checkResult("Hobbies", hobbies)
                 .checkResult("Picture", Picture)
                 .checkResult("Address", currentAddress)
-                .checkResult("State and city", state + " " + city)
+                .checkResult("State and City", state + " " + city)
                 .closeModal();
 
 
