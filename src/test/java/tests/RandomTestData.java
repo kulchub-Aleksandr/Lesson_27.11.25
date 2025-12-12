@@ -19,6 +19,5 @@ public class RandomTestData {
     static String state = "NCR";
     static String city = "Delhi";
     static String submitFormText = "Thanks for submitting the form";
-    static String permanentAddress = "Another street 1";
 
 }

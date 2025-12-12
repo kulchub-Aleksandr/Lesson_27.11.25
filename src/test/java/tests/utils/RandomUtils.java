@@ -3,11 +3,9 @@ package tests.utils;
 import com.github.javafaker.Faker;
 
 import java.security.SecureRandom;
-import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.time.YearMonth;
 import java.time.format.TextStyle;
-import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 

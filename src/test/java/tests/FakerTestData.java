@@ -14,8 +14,8 @@ public class FakerTestData {
     static String lastName = faker.name().lastName();
     static String userEmail = faker.internet().safeEmailAddress();
     static String gender = getRandomGender();
-    static String userNumber = faker.phoneNumber().subscriberNumber(10);;
-    static String notFullUserNumber = faker.phoneNumber().subscriberNumber(9);;
+    static String userNumber = faker.phoneNumber().subscriberNumber(10);
+    static String notFullUserNumber = faker.phoneNumber().subscriberNumber(9);
     static String day = generateRandomDay();
     static String month = generateRandomMonth();
     static String year = generateRandomYear();
