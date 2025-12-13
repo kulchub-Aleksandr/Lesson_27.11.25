@@ -2,44 +2,46 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-
-import static tests.FakerTestData.*;
+import tests.utils.RandomUtils;
 
 public class RegistrationWithFakerDataTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    RandomUtils  randomUtils = new RandomUtils();
+    FakerTestData fakerTestData = new FakerTestData();
+
 
     @Test
     void successfulRegistrationTest() {
         registrationPage
                 .openPage()
                 .removeBanner()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth(day, month, year)
-                .setSabjects(sabjects)
-                .setHobbies(hobbies)
-                .setUploadPicture(Picture)
-                .setCurrentAddress(currentAddress)
+                .setFirstName(fakerTestData.firstName)
+                .setLastName(fakerTestData.lastName)
+                .setEmail(fakerTestData.userEmail)
+                .setGender(fakerTestData.gender)
+                .setUserNumber(fakerTestData.userNumber)
+                .setDateOfBirth(fakerTestData.day, fakerTestData.month, fakerTestData.year)
+                .setSabjects(fakerTestData.subjects)
+                .setHobbies(fakerTestData.hobbies)
+                .setUploadPicture(fakerTestData.Picture)
+                .setCurrentAddress(fakerTestData.currentAddress)
                 .setScroll()
-                .setStateDropdown(state)
-                .setCityDropdown(city)
+                .setStateDropdown(fakerTestData.state)
+                .setCityDropdown(fakerTestData.city)
                 .setSubmit()
                 .setModalDialog()
-                .setModalTitle(submitFormText)
-                .checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", day + " " + month + "," + year)
-                .checkResult("Subjects", sabjects)
-                .checkResult("Hobbies", hobbies)
-                .checkResult("Picture", Picture)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + city)
+                .setModalTitle(randomUtils.submitFormText)
+                .checkResult("Student Name", fakerTestData.firstName + " " + fakerTestData.lastName)
+                .checkResult("Student Email", fakerTestData.userEmail)
+                .checkResult("Gender", fakerTestData.gender)
+                .checkResult("Mobile", fakerTestData.userNumber)
+                .checkResult("Date of Birth", fakerTestData.day + " " + fakerTestData.month + "," + fakerTestData.year)
+                .checkResult("Subjects", fakerTestData.subjects)
+                .checkResult("Hobbies", fakerTestData.hobbies)
+                .checkResult("Picture", fakerTestData.Picture)
+                .checkResult("Address", fakerTestData.currentAddress)
+                .checkResult("State and City", fakerTestData.state + " " + fakerTestData.city)
                 .closeModal();
 
 
@@ -49,11 +51,11 @@ public class RegistrationWithFakerDataTests extends TestBase {
     void minimalSuccessfulRegistrationTest() {
         registrationPage
                 .openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
+                .setFirstName(fakerTestData.firstName)
+                .setLastName(fakerTestData.lastName)
                 //.setEmail("Alex@Dmitr.com")
-                .setGender(gender)
-                .setUserNumber(userNumber)
+                .setGender(fakerTestData.gender)
+                .setUserNumber(fakerTestData.userNumber)
                 //.setDateOfBirth("30", "October", "1990")
                 //.setSabjects("Maths")
                 //.setHobbies("Reading")
@@ -66,11 +68,11 @@ public class RegistrationWithFakerDataTests extends TestBase {
                 .setScroll()
                 .setSubmit()
                 .setModalDialog()
-                .setModalTitle(submitFormText)
-                .checkResult("Student Name", firstName + " " + lastName)
+                .setModalTitle(randomUtils.submitFormText)
+                .checkResult("Student Name", fakerTestData.firstName + " " + fakerTestData.lastName)
 //                .checkResult("Student Email", "Alex@Dmitr.com")
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
+                .checkResult("Gender", fakerTestData.gender)
+                .checkResult("Mobile", fakerTestData.userNumber)
 //                .checkResult("Date of Birth", "30 October,1990")
 //                .checkResult("Subjects", "Maths")
 //                .checkResult("Hobbies", "Reading")
@@ -84,16 +86,16 @@ public class RegistrationWithFakerDataTests extends TestBase {
     void negativeRegistrationTest() {
         registrationPage
                 .openPage()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(notFullUserNumber)  // не полный набор цифр
-                .setDateOfBirth(day, month, year)
-                .setSabjects(sabjects)
-                .setHobbies(hobbies)
-                .setUploadPicture(Picture)
-                .setCurrentAddress(currentAddress)
+                .setFirstName(fakerTestData.firstName)
+                .setLastName(fakerTestData.lastName)
+                .setEmail(fakerTestData.userEmail)
+                .setGender(fakerTestData.gender)
+                .setUserNumber(fakerTestData.notFullUserNumber)  // не полный набор цифр
+                .setDateOfBirth(fakerTestData.day, fakerTestData.month, fakerTestData.year)
+                .setSabjects(fakerTestData.subjects)
+                .setHobbies(fakerTestData.hobbies)
+                .setUploadPicture(fakerTestData.Picture)
+                .setCurrentAddress(fakerTestData.currentAddress)
                 .setScroll()
 //                .setStateDropdown()
 //                .setStateCityWrapper(state)
